@@ -82,7 +82,6 @@ var winningScore = numInput.value;
 p1Btn.addEventListener("click", function() {
     if (!gameOver) {
         p1Score++;
-        console.log(p1Score, winningScore);
         if (p1Score === winningScore) {
             p1ScoreDisplay.classList.add("winner")
             gameOver = true;
@@ -102,21 +101,20 @@ p2Btn.addEventListener("click", function() {
     }
 });
 
-resetBtn.addEventListener("click", function() {
-    if(p1Score === winningScore || p2Score === winningScore) {
-        p1Score = 0;
-        p2Score = 0;
-        p1ScoreDisplay.textContent = p1Score;
-        p2ScoreDisplay.textContent = p2Score;
-        p1ScoreDisplay.classList.remove("winner");
-        p2ScoreDisplay.classList.remove("winner");
-        gameOver = false;
-    } else {
-        alert("you must win the game first before reset")
-    }
-});
+function reset() {
+    p1Score = 0;
+    p2Score = 0;
+    p1ScoreDisplay.textContent = p1Score;
+    p2ScoreDisplay.textContent = p2Score;
+    p1ScoreDisplay.classList.remove("winner");
+    p2ScoreDisplay.classList.remove("winner");
+    gameOver = false;
+}
+
+resetBtn.addEventListener("click", reset)
 
 numInput.addEventListener("change", function() {
-    numOfPlay.textContent = numInput.value;
-    winningScore = Number(numInput.value);
-})
+    numOfPlay.textContent = this.value;
+    winningScore = Number(this.value);
+    reset();
+});
