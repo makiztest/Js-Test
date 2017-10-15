@@ -72,14 +72,17 @@ var p2Btn = document.querySelector("#p2");
 var resetBtn = document.querySelector("#reset");
 var p1ScoreDisplay = document.querySelector("#p1ScoreDisplay");
 var p2ScoreDisplay= document.querySelector("#p2ScoreDisplay");
+var numInput = document.querySelector("input[type='number']");
+var numOfPlay = document.querySelector("p span");
 var p1Score = 0;
 var p2Score = 0;
 var gameOver = false; //gameOver is not true in the beginning of the game
-var winningScore = 5;
+var winningScore = numInput.value;
 
 p1Btn.addEventListener("click", function() {
     if (!gameOver) {
         p1Score++;
+        console.log(p1Score, winningScore);
         if (p1Score === winningScore) {
             p1ScoreDisplay.classList.add("winner")
             gameOver = true;
@@ -100,7 +103,7 @@ p2Btn.addEventListener("click", function() {
 });
 
 resetBtn.addEventListener("click", function() {
-    if(p1Score === 5 || p2Score === 5) {
+    if(p1Score === winningScore || p2Score === winningScore) {
         p1Score = 0;
         p2Score = 0;
         p1ScoreDisplay.textContent = p1Score;
@@ -113,3 +116,7 @@ resetBtn.addEventListener("click", function() {
     }
 });
 
+numInput.addEventListener("change", function() {
+    numOfPlay.textContent = numInput.value;
+    winningScore = Number(numInput.value);
+})
