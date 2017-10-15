@@ -69,7 +69,7 @@ boxBtn.addEventListener("click", function() {
 //score keeper
 var p1Btn = document.querySelector("#p1");
 var p2Btn = document.querySelector("#p2");
-var reset = document.querySelector("#reset");
+var resetBtn = document.querySelector("#reset");
 var p1ScoreDisplay = document.querySelector("#p1ScoreDisplay");
 var p2ScoreDisplay= document.querySelector("#p2ScoreDisplay");
 var p1Score = 0;
@@ -81,15 +81,35 @@ p1Btn.addEventListener("click", function() {
     if (!gameOver) {
         p1Score++;
         if (p1Score === winningScore) {
+            p1ScoreDisplay.classList.add("winner")
             gameOver = true;
         }
         p1ScoreDisplay.textContent = p1Score;
     }
 });
+
 p2Btn.addEventListener("click", function() {
-    p2Score++;
-    p2ScoreDisplay.textContent = p2Score;
+    if (!gameOver) {
+        p2Score++;
+        if (p2Score === winningScore) {
+            p2ScoreDisplay.classList.add("winner")            
+            gameOver = true;
+        }
+        p2ScoreDisplay.textContent = p2Score;
+    }
 });
-reset.addEventListener("click", function() {
-    console.log("reset");
-})
+
+resetBtn.addEventListener("click", function() {
+    if(p1Score === 5 || p2Score === 5) {
+        p1Score = 0;
+        p2Score = 0;
+        p1ScoreDisplay.textContent = p1Score;
+        p2ScoreDisplay.textContent = p2Score;
+        p1ScoreDisplay.classList.remove("winner");
+        p2ScoreDisplay.classList.remove("winner");
+        gameOver = false;
+    } else {
+        alert("you must win the game first before reset")
+    }
+});
+
