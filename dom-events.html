@@ -33,6 +33,11 @@
             color: green;
         }
 
+        .strikeThrough {
+            text-decoration: line-through;
+            color: rgba(0,0,0,.5)
+        }
+
     </style>
 </head>
 <body>
@@ -41,11 +46,23 @@
         <button class="btn btn-primary eventListnr">addEventListener()</button>
         <button class="btn btn-danger toggleBtn">change-bgcolor on click</button>
         <p class="mt-2">Click this <a href="#">link</a> to change my text</p>
-        <ul>
-            <li>Click to show color1</li>
-            <li>Click to show color2</li>
-            <li>Click to show color3</li>
-        </ul>
+        <br>
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li>Click to show color1</li>
+                    <li>Click to show color2</li>
+                    <li>Click to show color3</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ol>
+                    <li>Click to show</li>
+                    <li>Click to show</li>
+                    <li>Click to show</li>
+                </ol>
+            </div>
+        </div>
         <hr>
         <button class="btn btn-info circleBtn">change-circle color on click</button>        
         <div class="circle ml-2"></div>
