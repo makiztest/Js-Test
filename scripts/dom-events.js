@@ -4,13 +4,14 @@ p.addEventListener("click", function() {
     p.style.backgroundColor = "tomato";
 })
 
-var mOver = document.querySelector("#mOver");
+//using mouseover and mouseout
+var mOver = document.querySelector(".mOver");
 mOver.addEventListener("mouseover", function() {
-    this.style.backgroundColor = "tomato";
+    this.classList.add("mOverbackground");
 });
 
 mOver.addEventListener("mouseout", function() {
-    this.style.backgroundColor = "mediumturquoise";
+    this.classList.remove("mOverbackground");
 });
 
 //alert when addEventListener button click
@@ -46,11 +47,16 @@ function changeText() {
 //onclick change ul li color to gold
 var ulis = document.querySelectorAll("ul li");
     for (var i = 0; i < ulis.length; i++) {
-        ulis[i].addEventListener("click", changeColor)
+        ulis[i].addEventListener("mouseover", mOverIn);
+        ulis[i].addEventListener("mouseout", mOverOut);
     }
 
-function changeColor() {
+function mOverIn() {
     this.style.color = "gold"
+}
+
+function mOverOut() {
+    this.style.color = "black"
 }
 
 //onclick change ol li to strikethrough
