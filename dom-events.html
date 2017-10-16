@@ -38,11 +38,24 @@
             color: rgba(0,0,0,.5)
         }
 
+        #mOver {
+            padding: 5px;
+            background-color: mediumturquoise;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <p class="lead">Dom Events</p><br>
+        <div class="row">
+            <div class="col">
+                <p class="lead">Dom Events</p>
+            </div>
+            <div class="col">
+                <p class="lead" id="mOver">mouseover</p>
+            </div>
+        </div>
+        <hr>
         <button class="btn btn-primary eventListnr">addEventListener()</button>
         <button class="btn btn-danger toggleBtn">change-bgcolor on click</button>
         <p class="mt-2">Click this <a href="#">link</a> to change my text</p>

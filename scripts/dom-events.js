@@ -1,9 +1,17 @@
 //change bgColor of Dom Events
 var p = document.querySelectorAll("p")[0];
-console.log(p)
 p.addEventListener("click", function() {
     p.style.backgroundColor = "tomato";
 })
+
+var mOver = document.querySelector("#mOver");
+mOver.addEventListener("mouseover", function() {
+    this.style.backgroundColor = "tomato";
+});
+
+mOver.addEventListener("mouseout", function() {
+    this.style.backgroundColor = "mediumturquoise";
+});
 
 //alert when addEventListener button click
 var eventButton = document.querySelector(".eventListnr");
@@ -78,7 +86,6 @@ function circleToggle() {
 //using classList toggle short method
 var boxBtn = document.querySelector(".boxBtn")
 var box = document.querySelector(".box")
-var isPink = false;
 
 boxBtn.addEventListener("click", function() {
     box.classList.toggle("pink")
