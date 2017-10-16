@@ -1,32 +1,17 @@
-var eventButton = document.querySelector(".eventListnr");
-eventButton.addEventListener("click", function() {
-    console.log("You click the eventButton");
-});
-
-var link = document.querySelector("a");
-var paragraph = document.querySelectorAll("p");
-link.addEventListener("click", changeText)
-
-function changeText() {
-    paragraph[1].innerHTML = '<p>Click this <a href="#">link</a> again</p>';
-}
-
+//change bgColor of Dom Events
 var p = document.querySelectorAll("p")[0];
 console.log(p)
 p.addEventListener("click", function() {
     p.style.backgroundColor = "tomato";
 })
 
-//onclick change li color
-var lis = document.querySelectorAll("li");
-    for (var i = 0; i < lis.length; i++) {
-        lis[i].addEventListener("click", changeColor)
-    }
+//alert when addEventListener button click
+var eventButton = document.querySelector(".eventListnr");
+eventButton.addEventListener("click", function() {
+    alert("You click the addEventListener button");
+});
 
-function changeColor() {
-    this.style.color = "gold"
-}
-
+//toggle bgColor gold or dodgerblue
 var toggleBtn = document.querySelector(".toggleBtn");
 var body = document.querySelector("body");
 var isGold = false;
@@ -77,7 +62,7 @@ var numOfPlay = document.querySelector("p span");
 var p1Score = 0;
 var p2Score = 0;
 var gameOver = false; //gameOver is not true in the beginning of the game
-var winningScore = numInput.value;
+var winningScore = 5;
 
 p1Btn.addEventListener("click", function() {
     if (!gameOver) {
