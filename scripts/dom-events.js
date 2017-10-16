@@ -26,7 +26,40 @@ toggleBtn.addEventListener("click", function() {
     }
 })
 
-//using circleDark = !circleDark
+//change text when link click
+var link = document.querySelector("a");
+var paragraph = document.querySelectorAll("p");
+link.addEventListener("click", changeText)
+
+function changeText() {
+    paragraph[1].innerHTML = '<p>Click this <a href="#">link</a> again</p>';
+}
+
+//onclick change ul li color to gold
+var ulis = document.querySelectorAll("ul li");
+    for (var i = 0; i < ulis.length; i++) {
+        ulis[i].addEventListener("click", changeColor)
+    }
+
+function changeColor() {
+    this.style.color = "gold"
+}
+
+//onclick change ol li to strikethrough
+var olis = document.querySelectorAll("ol li");
+var oli = false;
+
+for (var i = 0; i < olis.length; i++) {
+    olis[i].addEventListener("click", toStrikethrough)
+}
+
+function toStrikethrough() {
+// this.style.textDecoration = "line-through";
+// this.style.color = "rgba(0,0,0,.5)"
+    this.classList.toggle("strikeThrough");
+}
+
+//toggle color using long method
 var circleBtn = document.querySelector(".circleBtn");
 var circle = document.querySelector(".circle")
 var circleDark = false;
@@ -42,7 +75,7 @@ function circleToggle() {
     circleDark = !circleDark;
 }
 
-//using classList toggle
+//using classList toggle short method
 var boxBtn = document.querySelector(".boxBtn")
 var box = document.querySelector(".box")
 var isPink = false;
